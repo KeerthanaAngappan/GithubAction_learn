@@ -1,0 +1,8 @@
+name: first_run
+on: push
+jobs:
+  my-job:
+    runs-on: windows-latest
+    steps:
+      - name: my-step
+        run: echo "Run first code"
