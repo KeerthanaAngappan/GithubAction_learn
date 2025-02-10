@@ -15,7 +15,7 @@ jobs:
           echo "FROM python:3.9-slim" > Dockerfile
           echo "WORKDIR /app" >> Dockerfile 
           echo "COPY sample.py /app" >> Dockerfile 
-          echo "CMD ['python', 'sample.py']" >> Dockerfile
+          echo "CMD python sample.py" >> Dockerfile
 
 
       - name: Build Docker image
