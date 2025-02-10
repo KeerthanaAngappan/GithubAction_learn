@@ -1,0 +1,25 @@
+name: Docker Python2
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build Docker image
+        run: |
+          echo "FROM python:3.9-slim" > Dockerfile
+          echo "WORKDIR /app" >> Dockerfile 
+          echo "COPY sample.py /app" >> Dockerfile 
+          echo "CMD ['python', 'sample.py']" >> Dockerfile
+
+
+      - name: Build Docker image
+        run: docker build -t python-script .
+
+      - name: Run Python script in Docker
+        run: docker run python-script
